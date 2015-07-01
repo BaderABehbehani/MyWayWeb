@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Post Point of Interest</title>
+        
+        <style>
+            #menu {
+                list-style:none;
+                padding:0px;
+            }
+        
+            #menu li {
+                margin-top:5px;
+                width:200px;
+            }
+        
+            #menu li a {
+                background-color:black;
+                color:orange;
+                text-decoration:none;
+                display:block;
+                padding:5px;
+                border-radius:5px;
+            }
+        
+            #menu li a:hover {
+                background-color:orange;
+                color:black;
+            }
+        
+            div {
+                margin-left:250px;
+                margin-top:-550px;
+                color:orange;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="reg_user.html">Registered User</a></li>
+            <li><a href="userProfile.html">Profile</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="DailyRoutPrototype.html">Daily Routes</a></li>
+            <li><a href="view_map_reg_user.html">View Map</a></li>
+            <li><a href="SingleDestinationPrototypeRegUser.html">Single Destination</a></li>
+            <li><a href="MultipleDestinationPrototype.html">Multiple Destination</a></li>
+            <li><a href="digital address input.html">Digital Address</a></li>
+            <li><a href="viewpointofinterestRegUser.html">View Point of Interests</a></li>
+            <li><a href="PostPointofInterest.html" style="background-color:orange;color:black">Post New Point of Interest</a></li>
+            <li><a href="parent monitor.html">Parental Monitoring</a></li>
+            <li><a href="closeby.html">Close By</a></li>
+            <li><a href="ReportCondition.html">Report Road Condition</a></li>
+            <li><a href="share_location.html">Share Location</a></li>
+            <li><a href="login.html">Log out</a></li>
+        </ul>
+        
+        <div>
+            <h1>MyWay</h1>
+            <form action= "" method= ""> 
+                <fieldset id= "delivery"> <legend>Address</legend>
+                    <ul>
+                        <li><label for= "Area">Area: </label> <input type= "text" list= "Area" name= "Area" id= "Area" placeholder= "Pick an Area" />
+                        <datalist id= "Area">
+                        <li><label for= "Block">Block: </label> <input type= "text" name= "Block" id= "Block"/></li>
+                        <li><label for= "Street">Street: </label><input type= "text" name= "Street" id= "Street" /></li>
+                        <li><label for= "House">House No.: </label><input type= "text" name= "House" id= "House" /></li>
+                        <li><label for= "Description">Description: </label> <input type= "text" list= "Description" name= "Description" id= "Description" placeholder= "Describe the Event" />
+                    </ul>
+                    <input type="submit" value="Submit" />
+                    <input type="reset" value="Cancel" />
+                </fieldset>
+             </form>
+        </div>
+    </body>
+</html>

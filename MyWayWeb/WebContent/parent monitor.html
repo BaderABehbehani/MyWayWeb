@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parant Monitering</title>
+        
+        <style>
+            #img_oo {
+                background: url("map.jpg") no-repeat center center fixed;
+            	 background-size: cover;
+            }
+            
+            #global-nav {
+                width: 200px;
+                float: left;
+                background: grey;
+            }
+            
+            .global-subnav {
+                width: 200px;
+                background: white;
+            }
+            
+            #global-nav a {
+                color:light blue;
+                cursor: pointer;
+                display: block;
+                height: 40px;
+                line-height: 40px;   
+                text-indent: 10px;               
+                text-decoration:none;
+                font-weight: bold;
+                width: 100%;
+            }
+            
+            #global-nav ul{
+                background: grey;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .global-subnav ul{
+                background: orangered;
+                position: relative;
+                top: -10px;
+                left: 40px;
+            }
+            
+            #global-nav li{
+                list-style: none;   
+                border-bottom: #5C87B2 solid;
+                border-width: 3px;
+            }
+            
+            #global-nav ul ul li{
+                display:none;
+            }
+            
+            #global-nav li:hover {
+                background: #fff;
+            }
+            
+            #global-nav li:hover ul li{
+                display:block;
+            }
+            
+            #menu {
+                list-style:none;
+                padding:0px;
+            }
+        
+            #menu li {
+                margin-top:5px;
+                width:200px;
+            }
+        
+            #menu li a {
+                background-color:black;
+                color:orange;
+                text-decoration:none;
+                display:block;
+                padding:5px;
+                border-radius:5px;
+            }
+        
+            #menu li a:hover {
+                background-color:orange;
+                color:black;
+            }
+        
+            section {
+                margin-left:250px;
+                margin-top:-550px;
+            }
+        </style>
+    </head>
+        
+    <body>
+        <ul id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="reg_user.html">Registered User</a></li>
+            <li><a href="userProfile.html">Profile</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="DailyRoutPrototype.html">Daily Routes</a></li>
+            <li><a href="view_map_reg_user.html">View Map</a></li>
+            <li><a href="SingleDestinationPrototypeRegUser.html">Single Destination</a></li>
+            <li><a href="MultipleDestinationPrototype.html">Multiple Destination</a></li>
+            <li><a href="digital address input.html">Digital Address</a></li>
+            <li><a href="viewpointofinterestRegUser.html">View Point of Interests</a></li>
+            <li><a href="PostPointofInterest.html">Post New Point of Interest</a></li>
+            <li><a href="parent monitor.html" style="background-color:orange;color:black">Parental Monitoring</a></li>
+            <li><a href="closeby.html">Close By</a></li>
+            <li><a href="ReportCondition.html">Report Road Condition</a></li>
+            <li><a href="share_location.html">Share Location</a></li>
+            <li><a href="login.html">Log out</a></li>
+        </ul>
+        
+        <section>
+            <div id="global-nav">
+                <ul>
+                    <li><a href="#One">Average speed</a>
+                        <div class="global-subnav">
+                            <ul>
+                                <li><a href="#A">maximum </a></li>
+                                <li><a href="#B">minimum</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#Two">location</a>
+                        <div class="global-subnav">
+                                <ul>
+                                    <li><a href="#1">Recent location</a></li>
+                                    <li><a href="#2">locations History</a></li>
+                                    <li><a href="#3">Current location</a></li>
+            						<li><a href="#3">Final Destination</a></li>
+                                </ul>
+                        </div>
+                    </li>
+            		<li><a href="#Two">Current time</a>
+                        <div class="global-subnav">
+                                <ul>
+                                    <li><a href="#1">Amount of time Taken</a></li>
+                                    <li><a href="#2">Time Log</a></li>
+                                    <li><a href="#3">Time needed to arrive</a></li>
+                                </ul>
+                        </div>
+                    </li>
+                </ul>
+            	<br>
+            </div>
+            <img src="map.jpg">
+        </section>
+    </body>
+</html>

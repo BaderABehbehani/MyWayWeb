@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style>
+ul#menu {
+    padding: 0;
+
+}
+
+ul#menu li {
+    display: inline;
+    margin-left: 5px;
+}
+
+ul#menu li a {
+    background-color: black;
+    color: orange;
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: orange;
+    color: black;
+}
+
+
+
+#wrapper{
+	margin-left:10px;
+	float: left;
+	text-align: left;
+
+}
+
+
+</style>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(29.3638293,47.983768),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+	<div>
+<ul id="menu">
+  <li><a href="home.html">Home</a></li>
+  <li><a href="SingleDestinationPrototype.html" style = "background-color:#FFCC80; color:black">Single distanation</a></li>
+  <li><a href="viewpointofinterest.html">View Point Of Interest </a></li>
+  <li><a href="login.html">Log in</a></li>
+  <li><a href="reg.html">Register</a></li>
+</ul>  
+</div>
+<form action="action_page.php">
+  Enter Destination :
+    <br>
+	<input type="text" name="Dest1" value="">
+ <br><br>
+<input type="button" value="Add Destination">
+ <br><br> 
+</form>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+
+
+</body>
+</html>
