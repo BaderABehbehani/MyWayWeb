@@ -7,7 +7,9 @@
 <title>Review Reports</title>
 </head>
 <body>
-
+	<button type="submit" name="pending">Pending Reports</button>
+	<button type="submit" name="approved">Pending Reports</button>
+	<button type="submit" name="declined">Pending Reports</button>
 	<table>
 		<tr>
 			<th>Report ID</th>
