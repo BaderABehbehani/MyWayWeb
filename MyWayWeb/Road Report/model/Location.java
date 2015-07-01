@@ -1,4 +1,4 @@
-package report;
+package model;
 
 public class Location {
 	double longtitude;

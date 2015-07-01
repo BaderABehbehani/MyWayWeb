@@ -1,4 +1,4 @@
-package report;
+package model;
 
 import java.util.Date;
 

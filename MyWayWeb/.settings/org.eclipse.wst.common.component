@@ -2,6 +2,7 @@
     <wb-module deploy-name="MyWayWeb">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Road Report"/>
         <property name="context-root" value="MyWayWeb"/>
         <property name="java-output-path" value="/MyWayWeb/build/classes"/>
     </wb-module>
