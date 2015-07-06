@@ -12,6 +12,10 @@
 	<class>model.POILocation</class>
 	<class>model.PointOfInterest</class>
 	<class>model.POIType</class> 
+	
+	 <!-- User Profile models -->
+	<class>model.UserInfo</class>
+	
 	<properties>
 		<property name="toplink.jdbc.user" value="root"/>
 		<property name="toplink.jdbc.password" value="admin"/>

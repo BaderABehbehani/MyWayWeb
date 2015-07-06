@@ -1,7 +1,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900'
 	rel='stylesheet' type='text/css'>

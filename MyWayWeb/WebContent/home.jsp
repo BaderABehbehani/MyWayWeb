@@ -20,9 +20,9 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="userlogin.jsp">Registered User</a></li>
+						<li><a href="CheckLogin">Registered User</a></li>
 				        <li><a href="unreg.html">Unregister User</a></li>
-						<li><a href="AdminLogin.html">Admin</a></li>
+						<li><a href="CheckLogin">Admin</a></li>
 					</ul>
 				</nav>
 			</div>

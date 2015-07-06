@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>UserLogin</title>
-<%@include file="header.jsp" %>
+<%@include file="header.jsp"%>
 </head>
 <body>
 	<!-- Header -->
@@ -29,17 +29,37 @@
 						<header>
 							<h2>User Login</h2>
 						</header>
-						<h3>Enter username</h3>
-						<input type="text" required><br>
-						<h3>Enter Password</h3>
-						<input type="password" required><br><br>
-						<button onclick="window.location.href = 'userHome.jsp';">Log in</button>
-					</section>	
+						<div class="row">
+							<section class="6u">
+								<ul class="default">
+									<li><a href="register.jsp">Register from here</a></li>
+								</ul>
+							</section>
+						</div>
+						<form action="Login" method="post">
+							<h3>Enter user name</h3>
+							<input type="text" name="userName" required><br>
+							<h3>Enter Password</h3>
+							<input type="hidden" name="loginType" value="webLogin" />
+							<input type="password" name="passWord" required><br>
+							<input value="submit" type="submit">
+							<%
+								boolean fl = Boolean.valueOf((request.getParameter("invalidLogin")));
+
+								String msg = "";
+
+								if (fl == true) {
+									msg = "Username or password doesn't exist";
+								}
+							%>
+						</form><br/>
+						<div style="color: red;"><%=msg%></div>
+					</section>
 				</div>
 
 			</div>
 		</div>
 	</div>
-<%@include file="footer.jsp" %>
+	<%@include file="footer.jsp"%>
 </body>
 </html>
