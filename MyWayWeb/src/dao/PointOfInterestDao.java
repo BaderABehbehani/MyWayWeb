@@ -11,4 +11,6 @@ public interface PointOfInterestDao {
 	List<POIType> getPOITypes();
 
 	void submitPOI(PointOfInterest poi, POILocation location);
+	
+	List<PointOfInterest> getPOIs();
 }

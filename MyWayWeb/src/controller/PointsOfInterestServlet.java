@@ -28,62 +28,82 @@ import dao.PointOfInterestDaoImpl;
 @WebServlet("/PointsOfInterest")
 public class PointsOfInterestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-    public PointsOfInterestServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		handlePointsOfInterest(request,response);
+	public PointsOfInterestServlet() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		handlePointsOfInterest(request,response);
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		handlePointsOfInterest(request, response);
 	}
-	
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		handlePointsOfInterest(request, response);
+	}
+
 	private void handlePointsOfInterest(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		
+
 		String action = request.getParameter("action");
 		PointOfInterestDao pointOfInterestDao = new PointOfInterestDaoImpl();
-		
-		if("loadPOITypes".equalsIgnoreCase(action)){
+
+		if ("loadPOITypes".equalsIgnoreCase(action)) {
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-			List<POIType> poiTypes =  pointOfInterestDao.getPOITypes();
+			List<POIType> poiTypes = pointOfInterestDao.getPOITypes();
 			JSONArray jsonLocations = new JSONArray();
-			for(POIType poiType : poiTypes){
+			for (POIType poiType : poiTypes) {
 				JSONObject jsonLocation = new JSONObject();
 				jsonLocation.put("typeID", poiType.getTypeId());
 				jsonLocation.put("type", poiType.getType());
 				jsonLocations.add(jsonLocation);
 			}
 			out.print(jsonLocations.toString());
-			
-		}else if("PostPOI".equalsIgnoreCase(action)){
-			
-			String address="";
-			address=address.concat(request.getParameter("Area"));
-			address=address.concat(", "+request.getParameter("Block"));
-			address=address.concat(", "+request.getParameter("Street"));
-			address=address.concat(", "+request.getParameter("House"));
-			
+
+		} else if ("PostPOI".equalsIgnoreCase(action)) {
+
+			String address = "";
+			address = address.concat(request.getParameter("Area"));
+			address = address.concat(", " + request.getParameter("Block"));
+			address = address.concat(", " + request.getParameter("Street"));
+			address = address.concat(", " + request.getParameter("House"));
+
 			System.out.println(address);
 			POILocation location = new POILocation();
 			location.setLocation(address);
 			String name = request.getParameter("Name");
 			String description = request.getParameter("Description");
-			
+
 			POIType poiType = new POIType();
-			poiType.setTypeId(Integer.parseInt(request.getParameter("TypeSelection")));
-			
-			PointOfInterest pointOfInterest = new PointOfInterest(name, description, location, poiType);
-			
+			poiType.setTypeId(Integer.parseInt(request
+					.getParameter("TypeSelection")));
+
+			PointOfInterest pointOfInterest = new PointOfInterest(name,
+					description, location, poiType);
+
 			pointOfInterestDao.submitPOI(pointOfInterest, location);
 			response.sendRedirect("viewPointsOfInterest.jsp");
+		} else if ("loadPointOfInterest".equalsIgnoreCase(action)) {
+
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			
+			List<PointOfInterest> poiS = pointOfInterestDao.getPOIs();
+
+			JSONArray jsonLocations = new JSONArray();
+			for (PointOfInterest poi : poiS) {
+				JSONObject jsonLocation = new JSONObject();
+
+				jsonLocation.put("poiType", poi.getPoiType().getType());
+				jsonLocation.put("namePOI", poi.getNamePOI());
+				jsonLocations.add(jsonLocation);
+			}
+			out.print(jsonLocations.toString());
+
 		}
-		
+
 	}
-	
+
 }

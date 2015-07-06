@@ -39,4 +39,14 @@ public class PointOfInterestDaoImpl implements PointOfInterestDao {
 
 	}
 
+	@Override
+	public List<PointOfInterest> getPOIs() {
+		EntityManager em = this.getMyWayEntityManager();
+		List<PointOfInterest> poiS = null;
+		Query q = em.createQuery("SELECT poi FROM PointOfInterest poi");
+		poiS = q.getResultList();
+		
+		return poiS; 
+	}
+
 }
