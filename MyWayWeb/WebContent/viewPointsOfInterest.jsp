@@ -4,6 +4,11 @@
 <title>view Points of interest</title>
 <%@include file="header.jsp" %>
 <script type="text/javascript" src="js/PointsOfInterest.js"></script>
+<style type="text/css">
+#pois table, th, td {
+	border: 1px solid black;
+}
+</style>
 </head>
 <body onload="loadPOITypes()">
 	<!-- Header -->
@@ -35,13 +40,17 @@
 										<option selected value=""></option>
 												<!-- GET FROM DB -->
 								</select> <span class="error">*</span>
-						
+						<br/><br/>
 						Points of interest:
-								<select name="PointsOfInterest" id="PointsOfInterest" mulitple="multiple" >
-										<option selected value=""></option>
-								</select> <span class="error">*</span>
-								<div id="pois"></div><br>
-								<div id="selecto"></div>
+								<table id="pois">
+									<thead>
+										<tr>
+											<td>point of Interest Name</td>
+											<td>Location</td>
+										</tr>
+									</thead>
+								</table><br>
+								
 					
 				</div>
 			</div>
@@ -49,45 +58,33 @@
 	</div>
 	<%@include file="footer.jsp" %>
 	
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	
-	<script type="text/javascript">
+		<script type="text/javascript">
 	
 	$( document ).ready(function() {
 	    console.log( "ready!" );
-
+	
 	    	$.getJSON( "/MyWayWeb/PointsOfInterest?action=loadPointOfInterest", function( resp ) {
-	    	    
 	    		var $selected= $("#TypeSelection");
-	    		var $myOpt = $("#PointsOfInterest");
-	    		
+	    		var $myOpt = $("#PointsOfInterest ul li");
 	    		var $pois = $("#pois");
- 					 
  					$( "#TypeSelection").on('change', function (e) {
- 						
- 						$($myOpt).html('');
- 					
- 						    var optionSelected = $("option:selected", this);
- 						    var valueSelected = this.value;
- 						    
- 						    
+ 						   var optionSelected = $("option:selected", this);
+ 						   var valueSelected = this.value;
  						   $.each( resp, function( key, value ) {
- 						    
  							   if(optionSelected.text() == value.poiType){
- 						   $myOpt.append($('<option>', {
- 			    	            value: key,
- 			    	            text: value.namePOI
- 			    	        }));
- 							   }
- 							   
- 						  });
- 						    
+ 								  	var table = document.getElementById("pois");
+ 								  	var tableLength = table.rows.length;
+ 									var row = table.insertRow(tableLength);
+ 									var cell1 = row.insertCell(0);
+ 									var cell2 = row.insertCell(1);
+ 									cell1.innerHTML = value.namePOI;
+ 									cell2.innerHTML = "</td><td><a href='/MyWayWeb/viewMapsbyKeyWord.jsp?POI="+value.namePOI+"'>View Map</a>";   
+ 							   }		   
+ 						  });			    
  					});
-	    	    
 	    	});
-       
-
-	});
+	}); 
 	</script>
+	
 </body>
 </html>

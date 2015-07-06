@@ -48,5 +48,15 @@ public class PointOfInterestDaoImpl implements PointOfInterestDao {
 		
 		return poiS; 
 	}
+	
+	public void reviewPOI(String choice, int id){
+		EntityManager em = this.getMyWayEntityManager();
+		
+		PointOfInterest pointOfInterest = em.find(PointOfInterest.class, id);
+		pointOfInterest.setStatus(choice.charAt(0));
+		em.getTransaction().begin();
+		em.merge(pointOfInterest);
+		em.getTransaction().commit();
+	}
 
 }

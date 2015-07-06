@@ -8,6 +8,7 @@ function getJourneys() {
 		preventCache : true,
 		handleAs : "json",
 		handle : function(journey, ioArgs) {
+			
 			for (var i = 0; i < journey.length; i++) {
 				var table = document.getElementById("parentsMonitoringTable");
 				var row = table.insertRow(1);
@@ -17,8 +18,14 @@ function getJourneys() {
 				var cell4 = row.insertCell(3);
 				var cell5 = row.insertCell(4);
 				var cell6 = row.insertCell(5);
+		
 				cell1.innerHTML = journey[i].Username;
-				cell2.innerHTML = journey[i].CurrentLocation;
+				var location = journey[i].CurrentLocation;
+				var coordinates = location.split(','); 
+				
+				
+				cell2.innerHTML = "<a href='/MyWayWeb/viewMapsbyCoordinates.jsp?lat="+coordinates[1]+"&lon="+coordinates[0]+"'>View Map</a>";
+				
 				cell3.innerHTML = journey[i].FinalDestination;
 				cell4.innerHTML = journey[i].Speed;
 				cell5.innerHTML = journey[i].speedAverage;

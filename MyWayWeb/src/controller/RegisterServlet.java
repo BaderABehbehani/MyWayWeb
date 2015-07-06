@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
 		ui.setPassWord(request.getParameter("password"));
 		ui.setEmail(request.getParameter("email"));
 		ui.setMobile(request.getParameter("mobile"));
-		ui.setUserRole(request.getParameter("userRole"));
+		ui.setUserRole(request.getParameter("userRole").trim());
 		
 		UserInfoDoa userInfoDoa = new UserInfoDoaImpl();
 		

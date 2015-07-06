@@ -13,4 +13,6 @@ public interface PointOfInterestDao {
 	void submitPOI(PointOfInterest poi, POILocation location);
 	
 	List<PointOfInterest> getPOIs();
+	
+	void reviewPOI(String choice, int id);
 }

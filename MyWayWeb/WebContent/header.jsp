@@ -8,7 +8,10 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/common/dojo.js"></script>
-<script type="text/javascript" src="js/common/common.js"></script>
+<script
+     src="http://maps.googleapis.com/maps/api/js">
+</script>
+
 <script src="js/common/skel.min.js"></script>
 <script src="js/common/skel-panels.min.js"></script>
 <script src="js/common/init.js"></script>

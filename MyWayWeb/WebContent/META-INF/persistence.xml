@@ -16,6 +16,10 @@
 	 <!-- User Profile models -->
 	<class>model.UserInfo</class>
 	
+	<!-- Reports models -->
+	<class>model.IncidentReport</class>
+	<class>model.Location</class>
+	
 	<properties>
 		<property name="toplink.jdbc.user" value="root"/>
 		<property name="toplink.jdbc.password" value="admin"/>

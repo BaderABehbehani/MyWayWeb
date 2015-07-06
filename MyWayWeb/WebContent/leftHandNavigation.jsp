@@ -2,13 +2,14 @@
 
 <div class="row">
 	<section class="6u">
+	
 		<c:choose>
 			<c:when test="${sessionScope.user.userRole == 'admin'}">
 				<ul class="default">
 					<li><a href="admin.jsp">Home</a></li>
-					<li><a href="viewPointsOfInterest.jsp">Review Point of
+					<li><a href="reviewPointsOfInterest.jsp">Review Point of
 							Interests</a></li>
-					<li><a href="postPointOfInterest.jsp">Review Reports </a></li>
+					<li><a href="reviewReports.jsp">Review Reports </a></li>
 					<li><a href="Logout">Log out</a></li>
 				</ul>
 			</c:when>

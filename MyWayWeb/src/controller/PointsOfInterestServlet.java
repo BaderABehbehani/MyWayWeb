@@ -102,6 +102,33 @@ public class PointsOfInterestServlet extends HttpServlet {
 			}
 			out.print(jsonLocations.toString());
 
+		}else if("loadPointsOfInterests".equalsIgnoreCase(action)){
+			
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			List<PointOfInterest> pois =  pointOfInterestDao.getPOIs();
+			JSONArray jsonPointOfInterest = new JSONArray();
+			for(PointOfInterest pointOfInterest : pois){
+				JSONObject jsonPOI = new JSONObject();
+				jsonPOI.put("POIName", pointOfInterest.getNamePOI());
+				POILocation poiLocation = pointOfInterest.getLocationPOI();
+				String location = poiLocation.getLocation();
+				jsonPOI.put("location", location);
+				int id = pointOfInterest.getId();
+				jsonPOI.put("id", id);
+				jsonPointOfInterest.add(jsonPOI);
+			}
+		
+			out.print(jsonPointOfInterest.toString());
+			
+		} else if("ReviewPOI".equalsIgnoreCase(action)){
+		
+			int id=Integer.parseInt(request.getParameter("selectedId"));
+			
+			String choice = request.getParameter("selectedChoice");
+			
+			pointOfInterestDao.reviewPOI(choice, id);
+			response.sendRedirect("reviewPointsOfInterest.jsp");
 		}
 
 	}

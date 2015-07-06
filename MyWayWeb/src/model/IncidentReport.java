@@ -2,13 +2,39 @@ package model;
 
 import java.util.Date;
 
-public class IncidentReport {
+import javax.persistence.*;
 
-	String reportType;
-	String reportDescription;
-	Date reportTime = new Date();
-	String trafficDensity;
-	boolean voiceNotification;
+@Entity
+@Table(name="INCIDENTREPORT")
+public class IncidentReport {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	private String reportType;
+	
+	private String reportDescription;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date reportTime;
+	
+	//private String trafficDensity;
+	
+	private String voiceNotificationPath = null;
+	
+	private String reportStatus;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Location location;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getReportType() {
 		return reportType;
@@ -34,20 +60,28 @@ public class IncidentReport {
 		this.reportTime = reportTime;
 	}
 
-	public String getTrafficDensity() {
-		return trafficDensity;
+	public String getVoiceNotificationPath() {
+		return voiceNotificationPath;
 	}
 
-	public void setTrafficDensity(String trafficDensity) {
-		this.trafficDensity = trafficDensity;
+	public void setVoiceNotificationPath(String voiceNotificationPath) {
+		this.voiceNotificationPath = voiceNotificationPath;
 	}
 
-	public boolean isVoiceNotification() {
-		return voiceNotification;
+	public String getReportStatus() {
+		return reportStatus;
 	}
 
-	public void setVoiceNotification(boolean voiceNotification) {
-		this.voiceNotification = voiceNotification;
+	public void setReportStatus(String reportStatus) {
+		this.reportStatus = reportStatus;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	
 }
