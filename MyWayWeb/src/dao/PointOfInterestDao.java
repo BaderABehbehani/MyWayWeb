@@ -13,4 +13,6 @@ public interface PointOfInterestDao {
 	List<PointOfInterest> getPOIs();
 	
 	void reviewPOI(String choice, int id);
+	
+	List<PointOfInterest> getPendingPOIs() ;
 }

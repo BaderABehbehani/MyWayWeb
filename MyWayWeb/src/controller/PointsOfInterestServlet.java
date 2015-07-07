@@ -95,7 +95,7 @@ public class PointsOfInterestServlet extends HttpServlet {
 			
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-			List<PointOfInterest> pois =  pointOfInterestDao.getPOIs();
+			List<PointOfInterest> pois =  pointOfInterestDao.getPendingPOIs();
 			JSONArray jsonPointOfInterest = new JSONArray();
 			for(PointOfInterest pointOfInterest : pois){
 				JSONObject jsonPOI = new JSONObject();

@@ -35,6 +35,16 @@ public class PointOfInterestDaoImpl implements PointOfInterestDao {
 		em.getTransaction().commit();
 
 	}
+	
+	@Override
+	public List<PointOfInterest> getPendingPOIs() {
+		EntityManager em = this.getMyWayEntityManager();
+		List<PointOfInterest> poiS = null;
+		Query q = em.createQuery("SELECT poi FROM PointOfInterest poi where poi.status = 'P' ");
+		poiS = q.getResultList();
+		
+		return poiS; 
+	}
 
 	@Override
 	public List<PointOfInterest> getPOIs() {
