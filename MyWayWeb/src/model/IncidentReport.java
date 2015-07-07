@@ -16,12 +16,12 @@ public class IncidentReport {
 	
 	private String reportDescription;
 	
+	private String trafficDensity;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date reportTime;
-	
-	//private String trafficDensity;
-	
-	private String voiceNotificationPath = null;
+		
+	private String voiceNotificationPath;
 	
 	private String reportStatus;
 	
@@ -82,6 +82,14 @@ public class IncidentReport {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getTrafficDensity() {
+		return trafficDensity;
+	}
+
+	public void setTrafficDensity(String trafficDensity) {
+		this.trafficDensity = trafficDensity;
 	}
 	
 }

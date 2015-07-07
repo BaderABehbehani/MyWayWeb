@@ -51,10 +51,6 @@ function validateForm() {
 function resetfields() {
 
 	document.getElementById('nameError').innerHTML = "";
-	document.getElementById('areaError').innerHTML = "";
-	document.getElementById('blockError').innerHTML = "";
-	document.getElementById('streetError').innerHTML = "";
-	document.getElementById('houseError').innerHTML = "";
 	document.getElementById('typeError').innerHTML = "";
 
 }

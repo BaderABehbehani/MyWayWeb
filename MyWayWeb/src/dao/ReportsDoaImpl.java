@@ -38,5 +38,14 @@ public class ReportsDoaImpl implements ReportsDao{
 		em.merge(incidentReport);
 		em.getTransaction().commit();
 	}
+	
+	public void addReport(IncidentReport incidentReport) {
+		
+		EntityManager em = this.getMyWayEntityManager();
+		em.getTransaction().begin();
+		em.persist(incidentReport);
+		em.getTransaction().commit();
+		
+	}
 
 }

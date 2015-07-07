@@ -43,6 +43,7 @@
 								<th>Report ID</th>
 								<th>Report Type</th>
 								<th>Report Description</th>
+								<th>Traffic Density</th>
 								<th>Voice Notification</th>
 								<th>Location</th>
 								<th>Date And Time</th>
@@ -69,6 +70,10 @@
 									out.print(list.get(i).getReportDescription());
 									out.print("</td>");
 
+									out.print("<td>");
+									out.print(list.get(i).getTrafficDensity());
+									out.print("</td>");
+									
 									out.print("<td>");
 
 									if (list.get(i).getVoiceNotificationPath() == null)
