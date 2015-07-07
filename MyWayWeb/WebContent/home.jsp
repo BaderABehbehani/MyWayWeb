@@ -21,7 +21,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="CheckLogin">Registered User</a></li>
-				        <li><a href="unreg.html">Unregister User</a></li>
+				        <li><a href="unreg.html">Unregistered User</a></li>
 						<li><a href="CheckLogin">Admin</a></li>
 					</ul>
 				</nav>
