@@ -16,8 +16,6 @@ public class PointOfInterest {
 	
 	private String namePOI;
 	private String description;
-	@ManyToOne
-	private POILocation locationPOI;
 	private char status='P';//default value P > Pending
 	@ManyToOne
 	private POIType poiType;
@@ -28,11 +26,10 @@ public class PointOfInterest {
 	}
 	
 	public PointOfInterest(String namePOI, String description,
-			POILocation locationPOI, POIType poiType) {
+			POIType poiType) {
 		super();
 		this.namePOI = namePOI;
 		this.description = description;
-		this.locationPOI = locationPOI;
 		this.poiType = poiType;
 	}
 	public String getNamePOI() {
@@ -47,12 +44,7 @@ public class PointOfInterest {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public POILocation getLocationPOI() {
-		return locationPOI;
-	}
-	public void setLocationPOI(POILocation locationPOI) {
-		this.locationPOI = locationPOI;
-	}
+
 	public char getStatus() {
 		return status;
 	}

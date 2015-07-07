@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>UserLogin</title>
+<title>Login</title>
 <%@include file="header.jsp"%>
 </head>
 <body>
@@ -11,7 +11,7 @@
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="#">UserLogin</a></li>
+					<li><a href="#">Login</a></li>
 				</ul>
 			</nav>
 		</div>

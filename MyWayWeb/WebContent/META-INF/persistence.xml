@@ -5,11 +5,9 @@
 	<provider>oracle.toplink.essentials.PersistenceProvider</provider>
 	
 	 <!-- parents Monitoring models -->
-	<class>model.parent</class>
 	<class>model.Journey</class>
 	
 	 <!-- point of interest models -->
-	<class>model.POILocation</class>
 	<class>model.PointOfInterest</class>
 	<class>model.POIType</class> 
 	
@@ -18,6 +16,8 @@
 	
 	<!-- Reports models -->
 	<class>model.IncidentReport</class>
+	
+	<!-- common models -->
 	<class>model.Location</class>
 	
 	<properties>

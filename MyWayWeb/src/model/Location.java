@@ -15,6 +15,9 @@ public class Location {
 	
 	@OneToOne(mappedBy="location")
 	private IncidentReport incidentReport;
+	
+	@OneToOne(mappedBy="currentLocation")
+	private Journey journey;
 
 	public int getId() {
 		return id;

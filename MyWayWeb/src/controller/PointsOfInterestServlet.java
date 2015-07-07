@@ -9,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.POILocation;
 import model.POIType;
 import model.PointOfInterest;
 
@@ -64,15 +62,6 @@ public class PointsOfInterestServlet extends HttpServlet {
 
 		} else if ("PostPOI".equalsIgnoreCase(action)) {
 
-			String address = "";
-			address = address.concat(request.getParameter("Area"));
-			address = address.concat(", " + request.getParameter("Block"));
-			address = address.concat(", " + request.getParameter("Street"));
-			address = address.concat(", " + request.getParameter("House"));
-
-			System.out.println(address);
-			POILocation location = new POILocation();
-			location.setLocation(address);
 			String name = request.getParameter("Name");
 			String description = request.getParameter("Description");
 
@@ -81,9 +70,9 @@ public class PointsOfInterestServlet extends HttpServlet {
 					.getParameter("TypeSelection")));
 
 			PointOfInterest pointOfInterest = new PointOfInterest(name,
-					description, location, poiType);
+					description, poiType);
 
-			pointOfInterestDao.submitPOI(pointOfInterest, location);
+			pointOfInterestDao.submitPOI(pointOfInterest);
 			response.sendRedirect("viewPointsOfInterest.jsp");
 		} else if ("loadPointOfInterest".equalsIgnoreCase(action)) {
 
@@ -111,9 +100,6 @@ public class PointsOfInterestServlet extends HttpServlet {
 			for(PointOfInterest pointOfInterest : pois){
 				JSONObject jsonPOI = new JSONObject();
 				jsonPOI.put("POIName", pointOfInterest.getNamePOI());
-				POILocation poiLocation = pointOfInterest.getLocationPOI();
-				String location = poiLocation.getLocation();
-				jsonPOI.put("location", location);
 				int id = pointOfInterest.getId();
 				jsonPOI.put("id", id);
 				jsonPointOfInterest.add(jsonPOI);

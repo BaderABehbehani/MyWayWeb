@@ -7,8 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
-import model.POILocation;
 import model.POIType;
 import model.PointOfInterest;
 
@@ -28,12 +26,11 @@ public class PointOfInterestDaoImpl implements PointOfInterestDao {
 		return poiTypes;
 	}
 
-	public void submitPOI(PointOfInterest poi, POILocation location) {
+	public void submitPOI(PointOfInterest poi) {
 
 		EntityManager em = this.getMyWayEntityManager();
 
 		em.getTransaction().begin();
-		em.persist(location);
 		em.persist(poi);
 		em.getTransaction().commit();
 
@@ -43,7 +40,7 @@ public class PointOfInterestDaoImpl implements PointOfInterestDao {
 	public List<PointOfInterest> getPOIs() {
 		EntityManager em = this.getMyWayEntityManager();
 		List<PointOfInterest> poiS = null;
-		Query q = em.createQuery("SELECT poi FROM PointOfInterest poi");
+		Query q = em.createQuery("SELECT poi FROM PointOfInterest poi where poi.status = 'A' ");
 		poiS = q.getResultList();
 		
 		return poiS; 

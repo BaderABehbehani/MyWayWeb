@@ -31,7 +31,7 @@
 				<div id="content" class="8u skel-cell-important">
 					<section>
 						<header>
-							<h2>Welcome to your account</h2>
+							<h2>Welcome <c:out value="${sessionScope.user.firstName}"></c:out>, <c:out value="${sessionScope.user.lastName}"></c:out></h2>
 						</header>
 					</section>
 				</div>

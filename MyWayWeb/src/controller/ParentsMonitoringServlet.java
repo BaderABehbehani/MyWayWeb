@@ -8,16 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
@@ -25,7 +21,8 @@ import com.ibm.json.java.JSONObject;
 import dao.ParentsMonitoringDao;
 import dao.ParentsMonitoringDaoImpl;
 import model.Journey;
-import model.parent;
+import model.UserInfo;
+
 
 @WebServlet("/ParentsMonitoring")
 public class ParentsMonitoringServlet extends HttpServlet {
@@ -41,19 +38,22 @@ public class ParentsMonitoringServlet extends HttpServlet {
 
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(PrintJourneys());
+		
+		HttpSession session = request.getSession();
+		UserInfo user = (UserInfo)session.getAttribute("user");
+		out.println(PrintJourneys(user.getUserName()));
 		out.close();
 		return;
 
 	}
 
-	private String PrintJourneys() {
+	private String PrintJourneys(String userName) {
 
 		ParentsMonitoringDao parentsMonitoringDao = new ParentsMonitoringDaoImpl();
 		// create array of type JASON
 		JSONArray jsonDetailsArray = new JSONArray();
 		List<Journey> journeys = parentsMonitoringDao
-				.getJourneysForParent("hebah");
+				.getJourneysForParent(userName);
 		for (Journey journey : journeys) {
 			JSONObject jsonDetails = new JSONObject();
 			// print for debugging
@@ -66,9 +66,10 @@ public class ParentsMonitoringServlet extends HttpServlet {
 			System.out.println("The speedAverage is "
 					+ journey.getSpeedAverage());
 
-			jsonDetails.put("Username", "hebah");
+			jsonDetails.put("Username", userName);
 			jsonDetails.put("UserID", journey.getId());
-			jsonDetails.put("CurrentLocation", journey.getCurrentLocation());
+			jsonDetails.put("lat", journey.getCurrentLocation().getLatitude());
+			jsonDetails.put("lon", journey.getCurrentLocation().getLongtitude());
 			jsonDetails.put("FinalDestination", journey.getFinalDestination());
 			jsonDetails.put("Speed", journey.getSpeed());
 			jsonDetails.put("speedAverage", journey.getSpeedAverage());

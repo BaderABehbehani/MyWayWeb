@@ -20,11 +20,11 @@ function getJourneys() {
 				var cell6 = row.insertCell(5);
 		
 				cell1.innerHTML = journey[i].Username;
-				var location = journey[i].CurrentLocation;
-				var coordinates = location.split(','); 
 				
+				var lat = journey[i].lat;
+				var lon = journey[i].lon;
 				
-				cell2.innerHTML = "<a href='/MyWayWeb/viewMapsbyCoordinates.jsp?lat="+coordinates[1]+"&lon="+coordinates[0]+"'>View Map</a>";
+				cell2.innerHTML = "<a href='/MyWayWeb/viewMapsbyCoordinates.jsp?lat="+lat+"&lon="+lon+"'>View Map</a>";
 				
 				cell3.innerHTML = journey[i].FinalDestination;
 				cell4.innerHTML = journey[i].Speed;

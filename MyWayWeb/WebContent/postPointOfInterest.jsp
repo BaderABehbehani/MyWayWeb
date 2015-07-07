@@ -46,30 +46,6 @@
 										<td id="nameError" style="color: red"></td>
 									</tr>
 									<tr>
-										<td>Area :</td>
-										<td><input id="Area" name="Area" type="text"
-											placeholder="Pick an Area"><span class="error">*</span></td>
-										<td id="areaError" style="color: red"></td>
-									</tr>
-									<tr>
-										<td>Block :</td>
-										<td><input id="Block" name="Block" type="text"
-											placeholder="Block #"><span class="error">*</span></td>
-										<td id="blockError" style="color: red"></td>
-									</tr>
-									<tr>
-										<td>Street :</td>
-										<td><input id="Street" name="Street" type="text"
-											placeholder="Street #"><span class="error">*</span></td>
-										<td id="streetError" style="color: red"></td>
-									</tr>
-									<tr>
-										<td>House :</td>
-										<td><input id="House" name="House" type="text"
-											placeholder="House #"><span class="error">*</span></td>
-										<td id="houseError" style="color: red"></td>
-									</tr>
-									<tr>
 										<td>Type:</td>
 										<td><select id="TypeSelection" name="TypeSelection">
 												<option selected value=""></option>

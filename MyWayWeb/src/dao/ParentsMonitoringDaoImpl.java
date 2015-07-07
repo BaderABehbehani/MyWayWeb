@@ -13,7 +13,8 @@ import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 
 import model.Journey;
-import model.parent;
+import model.UserInfo;
+
 
 public class ParentsMonitoringDaoImpl implements ParentsMonitoringDao{
 	
@@ -33,30 +34,11 @@ public class ParentsMonitoringDaoImpl implements ParentsMonitoringDao{
 
 		try {
 			
-			Query q = em.createNamedQuery("getUsers");
-			
-			q.setParameter("name", userName);
-			
-			List<parent> user = q.getResultList();
-			
-			em.getTransaction().begin();
-			q.getSingleResult();
-			em.getTransaction().commit();
-			for (int i = 0; i < user.size(); i++) {
-				String username = user.get(i).getUserName();
-
-				Query q1 = em.createNamedQuery("getJourneyDetails");
-				q1.setParameter("name", username);
-				List<parent> details = q1.getResultList();
-				// execute query
-				em.getTransaction().begin();
-				q1.getResultList();
-				q1.getResultList();
-				em.getTransaction().commit();
+			Query q = em.createQuery("select u from UserInfo u where u.userName='"+userName+"'");
+			List<UserInfo> user = q.getResultList();
+			journeys =  user.get(0).getJourneies();
 				
-				journeys =  details.get(i).getJourneies();
-				
-			}
+			
 		} catch (NoResultException e) {
 			System.out.println("user does not exist");
 		}

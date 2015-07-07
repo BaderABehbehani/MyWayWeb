@@ -29,10 +29,6 @@ function validateForm() {
 
 	var valid = true;
 	var name = document.getElementById("Name").value;
-	var area = document.getElementById("Area").value;
-	var block = document.getElementById("Block").value;
-	var street = document.getElementById("Street").value;
-	var house = document.getElementById("House").value;
 	var type = document.getElementById("TypeSelection").value;
 
 	if (name == "") {
@@ -40,34 +36,6 @@ function validateForm() {
 		valid = false;
 	} else {
 		document.getElementById('nameError').innerHTML = "";
-	}
-	
-	if (area == "") {
-		document.getElementById('areaError').innerHTML = "Field Cannot Be Empty";
-		valid = false;
-	} else {
-		document.getElementById('areaError').innerHTML = "";
-	}
-
-	if (block == "") {
-		document.getElementById('blockError').innerHTML = "Field Cannot Be Empty";
-		valid = false;
-	} else {
-		document.getElementById('blockError').innerHTML = "";
-	}
-
-	if (street == "") {
-		document.getElementById('streetError').innerHTML = "Field Cannot Be Empty";
-		valid = false;
-	} else {
-		document.getElementById('streetError').innerHTML = "";
-	}
-
-	if (house == "") {
-		document.getElementById('houseError').innerHTML = "Field Cannot Be Empty";
-		valid = false;
-	} else {
-		document.getElementById('houseError').innerHTML = "";
 	}
 
 	if (type == "") {

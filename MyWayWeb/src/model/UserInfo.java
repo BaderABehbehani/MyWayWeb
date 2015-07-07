@@ -1,10 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -31,6 +36,10 @@ public class UserInfo {
 	private String mobile;
 	private String locationId;
 	private String userRole;
+	
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	List <Journey> journeies= new ArrayList<Journey>() ;
+	
 	public int getId() {
 		return Id;
 	}
@@ -85,5 +94,12 @@ public class UserInfo {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+	public List<Journey> getJourneies() {
+		return journeies;
+	}
+	public void setJourneies(List<Journey> journeies) {
+		this.journeies = journeies;
+	}
+	
 
 }

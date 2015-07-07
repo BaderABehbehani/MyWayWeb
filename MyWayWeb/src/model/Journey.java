@@ -1,8 +1,8 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,20 +10,24 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@NamedQueries(@NamedQuery(name="getJourneyDetails",query="select u from parent u where u.userName = :name"))
 @Entity
 public class Journey {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String CurrentLocation;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Location currentLocation;
+	
 	private int speed;
 	private String FinalDestination;
 	private float speedAverage;
 	private String stops;
+	
 	@ManyToOne
 	@JoinColumn(name="userId")
-	parent p ;
+	UserInfo user ;
+	
 	@Transient
 	String username;
 	
@@ -33,11 +37,12 @@ public class Journey {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCurrentLocation() {
-		return CurrentLocation;
+	
+	public Location getCurrentLocation() {
+		return currentLocation;
 	}
-	public void setCurrentLocation(String currentLocation) {
-		CurrentLocation = currentLocation;
+	public void setCurrentLocation(Location currentLocation) {
+		this.currentLocation = currentLocation;
 	}
 	public int getSpeed() {
 		return speed;
@@ -63,12 +68,15 @@ public class Journey {
 	public void setStops(String stops) {
 		this.stops = stops;
 	}
-	public parent getP() {
-		return p;
+	
+
+	public UserInfo getUser() {
+		return user;
 	}
-	public void setP(parent p) {
-		this.p = p;
-		username=p.getUserName();
+	
+	public void setUser(UserInfo user) {
+		this.user = user;
+		username=user.getUserName();
 	}
 
 }
